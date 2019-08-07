@@ -6,40 +6,41 @@ import mutations from "./mutations"
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state: {
-        todoList: [],
-        todoInfo: {
-            id: 0,
-            date: "",
-            title: "",
-            content: "",
-            isDone: false
-        },
-        detail: {},
-        isShow: false
+  state: {
+    todoList: [],
+    todoInfo: {
+      id: 0,
+      date: "",
+      title: "",
+      content: "",
+      isDone: false
     },
-    actions: actions,
-    mutations: mutations,
-    getters: {
-        filterAll: function(state) {
-            let todoList = state.todoList;
-            return todoList;
-        },
-        filterDoned: function(state) {
-            let todoList = state.todoList.filter(function(item) {
-                if (item.isDone) {
-                    return item
-                }
-            })
-            return todoList;
-        },
-        filterNoDoned: function(state) {
-            let todoList = state.todoList.filter(function(item) {
-                if (!item.isDone) {
-                    return item;
-                }
-            })
-            return todoList;
+    detail: {},
+    isShow: false,
+    theme: 'blue'
+  },
+  actions: actions,
+  mutations: mutations,
+  getters: {
+    filterAll: function (state) {
+      let todoList = state.todoList;
+      return todoList;
+    },
+    filterDoned: function (state) {
+      let todoList = state.todoList.filter(function (item) {
+        if (item.isDone) {
+          return item
         }
+      })
+      return todoList;
+    },
+    filterNoDoned: function (state) {
+      let todoList = state.todoList.filter(function (item) {
+        if (!item.isDone) {
+          return item;
+        }
+      })
+      return todoList;
     }
+  }
 })

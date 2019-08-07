@@ -1,107 +1,47 @@
 <template>
   <div id="app">
-    <NoteHeader></NoteHeader>
+    <NoteHeader @tools="changePages"></NoteHeader>
     <div class="container">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
-      <audio src></audio>
     </div>
+    <Sidebar :is-show="tools" @openTheme="theme=true;tools=false"></Sidebar>
+    <Theme :is-show="theme" @close="theme = false"></Theme>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import NoteHeader from "@/components/header";
+import Sidebar from "@/components/Sidebar";
+import Theme from "@/components/Theme";
+import Footer from "@/components/Footer";
+
 export default {
   name: "app",
+  data() {
+    return {
+      tools: false,
+      theme: false
+    };
+  },
   components: {
-    NoteHeader
+    NoteHeader,
+    Sidebar,
+    Theme,
+    Footer
+  },
+  methods: {
+    changePages() {
+      this.tools = !this.tools;
+    }
   }
 };
 </script>
 
 <style lang="less">
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video,
-input {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -184,8 +124,8 @@ li {
   margin: 0 auto;
   .container {
     height: auto;
-    overflow: hidden;
-    padding-top: 90px;
+    // overflow: hidden;
+    padding-top: 110px;
   }
 }
 
@@ -201,55 +141,21 @@ li {
     background: url(assets/icon_no_list.png) no-repeat center;
     text-align: center;
   }
-  .noted-grid {
-    height: auto;
-    overflow: hidden;
-    margin: 5px 15px;
-    border: 1px solid #ccc;
-    border-bottom: none;
-    border-left: none;
-    .grid-item {
-      display: flex;
-      flex-direction: row;
-      height: 60px;
-      border-bottom: 1px solid #ccc;
-      > div {
-        flex-grow: 1;
-        height: 60px;
-        border-left: 1px solid #ccc;
-        padding: 5px;
-        line-height: 50px;
-      }
-      .item-index {
-        flex-basis: 40px;
-        .item-wrap {
-          text-align: center;
-        }
-      }
-      .item-title {
-        flex-basis: 600px;
-        .item-wrap {
-          width: 600px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          color: #81cde6;
-        }
-      }
-      .item-date {
-        flex-basis: 150px;
-        .item-wrap {
-          color: #a5a5a5;
-        }
-      }
-      .item-action {
-        flex-basis: 150px;
-        span {
-          color: #e5687f;
-          font-size: 12px;
-          margin-right: 5px;
-        }
-      }
+}
+
+.box-card {
+  .time {
+    color: black;
+  }
+
+  .el-icon-s-order,
+  .el-icon-circle-check,
+  .el-icon-delete {
+    transform: scale(1.8);
+    padding: 0 5px;
+
+    &:hover {
+      transform: scale(1.9);
     }
   }
 }

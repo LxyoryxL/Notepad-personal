@@ -42,7 +42,7 @@ export default {
       this.fullscreenLoading = true;
       setTimeout(() => {
         this.fullscreenLoading = false;
-      }, 800);
+      }, 500);
     }
   }
 };

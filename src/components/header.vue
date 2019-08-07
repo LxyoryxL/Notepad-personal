@@ -14,7 +14,15 @@
       <span>
         <router-link to="/over">已完成</router-link>
       </span>
+      <span>
+        <router-link to="/timeline">时间轴</router-link>
+      </span>
     </div>
+    <!-- 弹出菜单 -->
+    <a class="t-btn" @click="showTools">
+      <span></span>
+    </a>
+    <!-- 添加文章 -->
     <router-link to="/add">
       <span class="btn-add"></span>
     </router-link>
@@ -26,6 +34,11 @@ import Clock from "./Clock.vue";
 export default {
   components: {
     Clock
+  },
+  methods: {
+    showTools() {
+      this.$emit("tools");
+    }
   }
 };
 </script>
@@ -62,15 +75,13 @@ export default {
     }
   }
   .nav-bar {
-    display: inline-block;
-    float: left;
     height: auto;
     overflow: hidden;
     padding-top: 35px;
     padding-left: 20px;
     span {
       display: inline-block;
-      width: 80px;
+      width: 5rem;
       text-align: center;
       a {
         display: inline-block;
@@ -86,9 +97,22 @@ export default {
       }
     }
   }
+  .t-btn {
+    position: absolute;
+    right: 4rem;
+    top: 2.8rem;
+    width: 30px;
+    height: 26px;
+    cursor: pointer;
+    background: url(https://img.icons8.com/dusk/30/000000/restaurant-menu.png)
+      no-repeat center;
+  }
+  .t-btn:hover {
+  }
   .btn-add {
-    display: inline-block;
-    float: right;
+    position: absolute;
+    right: 0.8rem;
+    top: 0.7rem;
     width: 50px;
     height: 50px;
     background: url(../assets/icon_add_hover.png) no-repeat center center;

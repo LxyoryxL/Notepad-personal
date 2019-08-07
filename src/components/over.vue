@@ -1,24 +1,21 @@
 <template>
   <div class="page">
-    <div class="noted-grid" v-if="todoList.length>0">
-      <div class="grid-item" v-for="(item,index) in todoList" :key="index">
-        <div class="item-index">
-          <div class="item-wrap">{{item.id+1}}</div>
-        </div>
-        <div class="item-title">
-          <div class="item-wrap">{{item.title}}</div>
-        </div>
-        <div class="item-date">
-          <div class="item-wrap">{{item.date}}</div>
-        </div>
-        <div class="item-action">
-          <span @click="viewDetail(item)">查看</span>
-          <span @click="delNote(item)">删除</span>
-        </div>
-      </div>
-    </div>
     <div class="icon_no_list" v-if="todoList.length==0">暂无记录</div>
     <detailDialog v-if="isShow"></detailDialog>
+
+    <el-row>
+      <el-col :span="8" offset="8">
+        <el-card :body-style="{ padding: '10px'  }" v-for="(item, index) in todoList" :key="index">
+          <div style="padding: 5px">
+            <span>{{item.title}}</span>
+            <div class="bottom clearfix">
+              <time class="time">{{ item.date }}</time>
+              <el-button type="text" class="button">操作按钮</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -48,5 +45,34 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.time {
+  font-size: 13px;
+  color: #999;
+}
+
+.bottom {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.button {
+  padding: 0;
+  float: right;
+}
+
+.image {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
 </style>
 
