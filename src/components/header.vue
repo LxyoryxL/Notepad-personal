@@ -1,5 +1,23 @@
 <template>
   <div class="header">
+    <!-- 粒子效果 -->
+    <vue-particles
+      color="#dedede"
+      :particleOpacity="0.7"
+      :particlesNumber="80"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+    ></vue-particles>
     <div class="logo">
       <img src="../assets/icons8_jack_64.png" />
       <span>Notepad</span>
@@ -30,11 +48,8 @@
 </template>
 
 <script>
-import Clock from "./Clock.vue";
 export default {
-  components: {
-    Clock
-  },
+  components: {},
   methods: {
     showTools() {
       this.$emit("tools");
@@ -53,11 +68,13 @@ export default {
   z-index: 9999;
   height: 65px;
   padding: 10px;
-  box-shadow: 0px 2px 2px #eee;
+  box-shadow: 0px 2px 2px #bbb;
+  background: #fff no-repeat;
+  background-size: cover;
+
   .logo {
     display: inline-block;
     float: left;
-    height: 65px;
     height: 65px;
     img {
       display: inline-block;
@@ -77,6 +94,8 @@ export default {
   .nav-bar {
     height: auto;
     overflow: hidden;
+    position: absolute;
+    left: 12rem;
     padding-top: 35px;
     padding-left: 20px;
     span {
@@ -95,6 +114,9 @@ export default {
         transform: translateY(-1px);
         border-bottom: 4px solid #81cde6;
       }
+    }
+    .particles-js-canvas-el {
+      z-index: -999;
     }
   }
   .t-btn {

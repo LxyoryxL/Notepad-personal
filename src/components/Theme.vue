@@ -1,20 +1,23 @@
 <template>
   <section class="theme-box" :class="{'theme-box-show':isShow}">
     <div class="theme">
-      <div class="theme-title">点击切换主题色</div>
-      <div class="theme-list" @click="switchTheme('blue')">
+      <div class="theme-title">点击切换背景</div>
+      <div class="theme-list" @click="switchTheme('./assets/ginger-cat-animal-care.png')">
         <span style="background: #00b0f0"></span>#00b0f0
       </div>
-      <div class="theme-list" @click="switchTheme('green')">
+      <div class="theme-list" @click="switchTheme('./assets/clip-2.png')">
         <span style="background: #00d1b2"></span>#00d1b2
       </div>
-      <div class="theme-list" @click="switchTheme('orange')">
+      <div class="theme-list" @click="switchTheme('./assets/clip-2.png')">
         <span style="background: #f4b976"></span>#f4b976
       </div>
-      <div class="theme-list" @click="switchTheme('pink')">
+      <div class="theme-list" @click="switchTheme('./assets/clip-2.png')">
         <span style="background: #f39894"></span>#f39894
       </div>
-      <div class="theme-list" @click="switchTheme('cyan')">
+      <div
+        class="theme-list"
+        @click="switchTheme('./assets/ginger-cat-artificial-intelligence.png')"
+      >
         <span style="background: #26b6be"></span>#26b6be
       </div>
     </div>

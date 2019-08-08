@@ -6,9 +6,11 @@ import router from './router'
 import store from './store/index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import VueParticles from 'vue-particles'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
+Vue.use(VueParticles)
 
 /* eslint-disable no-new */
 new Vue({

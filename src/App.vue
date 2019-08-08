@@ -1,11 +1,14 @@
 <template>
   <div id="app">
+    <!-- 头部导航栏 -->
     <NoteHeader @tools="changePages"></NoteHeader>
+    <!-- 中间内容 -->
     <div class="container">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
     </div>
+    <!-- 左边栏 -->
     <Sidebar :is-show="tools" @openTheme="theme=true;tools=false"></Sidebar>
     <Theme :is-show="theme" @close="theme = false"></Theme>
     <Footer></Footer>
@@ -71,6 +74,9 @@ section {
 }
 
 body {
+  background: url(./assets/ginger-cat-artificial-intelligence.png) no-repeat
+    center bottom;
+  background-size: 60%;
   line-height: 1;
 }
 
@@ -124,14 +130,15 @@ li {
   margin: 0 auto;
   .container {
     height: auto;
-    // overflow: hidden;
     padding-top: 110px;
+    opacity: 0.8;
   }
 }
 
 .page {
   height: auto;
   overflow: hidden;
+
   .icon_no_list {
     width: 150px;
     height: 30px;
@@ -158,5 +165,14 @@ li {
       transform: scale(1.9);
     }
   }
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
