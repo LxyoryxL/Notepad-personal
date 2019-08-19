@@ -56,6 +56,7 @@ export default {
           "style",
           `background-color:${this.$store.state.theme} !important;`
         );
+      console.log(document.querySelector("body"));
     },
     changePages() {
       this.tools = !this.tools;
