@@ -1,4 +1,5 @@
 # 基于 vue2.0+vuex+localStorage 开发的本地记事本
+<a href="http://mona2544.gitee.io/notepad-personal/dist/#/all">演示地址</a>
 
 <a href="http://mona2544.gitee.io/notepad-personal/dist/#/all">演示地址</a>
 
