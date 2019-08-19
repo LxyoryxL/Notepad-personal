@@ -1,4 +1,5 @@
 # 基于 vue2.0+vuex+localStorage 开发的本地记事本
+<a href="http://mona2544.gitee.io/notepad-personal/dist/#/all">演示地址</a>
 
 > 本文采用 vue2.0+vuex+localStorage+scss+element-ui+vue-router+webpack，实现一个本地存储的记事本。
 
