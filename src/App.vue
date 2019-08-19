@@ -29,6 +29,10 @@ export default {
       theme: false
     };
   },
+  created() {
+    this.getNote();// 获取本地 Note 数据
+    this.saveNote();//存储本地 Note 数据
+  },
   components: {
     NoteHeader,
     Sidebar,
@@ -36,6 +40,12 @@ export default {
     Footer
   },
   methods: {
+    getNote() {
+      this.$store.dispatch("getNote");
+    },
+    saveNote() {
+      this.$store.dispatch("saveNote");
+    },
     changePages() {
       this.tools = !this.tools;
     }
@@ -167,6 +177,7 @@ li {
   }
 }
 
+// 粒子效果
 #particles-js {
   position: absolute;
   top: 0;

@@ -2,7 +2,7 @@
   <div class="event-tools" :class="{'show-event-tools':isShow}">
     <ul class="tools-sidebar">
       <li>
-        <button class="tools-btn" @click="openTheme">切换主题</button>
+        <button class="tools-btn" @click="openTheme">切换背景</button>
       </li>
       <li>
         <button class="tools-btn" @click="downloadData('notepad.txt',getDate)">下载数据</button>
@@ -34,6 +34,7 @@ export default {
       this.$emit("cleardialog");
     },
     openTable() {
+      //打开筛选数据页面
       this.$emit("opentable");
     },
     openTheme() {

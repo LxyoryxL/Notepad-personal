@@ -26,7 +26,8 @@ export default {
   },
   computed: {
     todoList: function() {
-      return this.$store.getters.filterNoDoned;
+      //获取本地数据
+      return this.$store.getters.filterAll;
     }
   }
 };

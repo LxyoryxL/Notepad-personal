@@ -14,14 +14,29 @@ export default {
       todoInfo.content = item.content;
       state.todoList.push(todoInfo);
     }
+    localStorage.setItem("state", JSON.stringify(state));
+  },
+  SAVE_NOTE: function (state) { //存储数据
+    localStorage.setItem("state", JSON.stringify(state));
+  },
+  GET_NOTE: function (state) { //获取本地数据
+    if (JSON.parse(localStorage.getItem("state")).todoList) {
+      state.todoList = JSON.parse(localStorage.getItem("state")).todoList;
+    }
+    state.todoInfo = JSON.parse(localStorage.getItem("state")).todoInfo;
+    state.detail = JSON.parse(localStorage.getItem("state")).detail;
+    state.isShow = JSON.parse(localStorage.getItem("state")).isShow;
+    state.theme = JSON.parse(localStorage.getItem("state")).theme;
   },
   VIEW_DETAIL: function (state, item) {
     state.isShow = true;
     state.detail = item;
+    localStorage.setItem("state", JSON.stringify(state));
   },
   HIDE_DETAIL: function (state) {
     state.isShow = false;
     state.detail = {};
+    localStorage.setItem("state", JSON.stringify(state));
   },
   DONE_NOTE: function (state, id) {
     state.todoList.map((item) => {
@@ -29,6 +44,7 @@ export default {
         item.isDone = !item.isDone;
       }
     });
+    localStorage.setItem("state", JSON.stringify(state));
   },
   DEL_NOTE: function (state, item) {
     let id = item.id;
@@ -37,11 +53,13 @@ export default {
         return item;
       }
     })
+    localStorage.setItem("state", JSON.stringify(state));
   },
 
   // Theme
   SWITCHTHEME(states, obj) {
     states.theme = obj.theme;
     func.theme_local.set(states);
+    localStorage.setItem("state", JSON.stringify(state));
   }
 }

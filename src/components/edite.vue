@@ -9,7 +9,7 @@
         </div>
         <div class="form-item">
           <div class="item-content">
-            <textarea placeholder="请输入内容" v-model="content" />
+            <textarea placeholder="请输入内容" v-model="content" @keyup.enter="addNote" />
           </div>
         </div>
         <div class="form-item">

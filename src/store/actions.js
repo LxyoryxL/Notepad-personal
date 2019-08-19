@@ -2,6 +2,12 @@ export default {
   addNote: function (context, item) {
     context.commit('ADD_NOTE', item);
   },
+  saveNote: function (context, item) {
+    context.commit('SAVE_NOTE', item);
+  },
+  getNote: function (context, item) {
+    context.commit('GET_NOTE', item)
+  },
   viewDetail: function (context, item) {
     context.commit('VIEW_DETAIL', item);
   },
