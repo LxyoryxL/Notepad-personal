@@ -52,7 +52,7 @@ export default new Vuex.Store({
     },
     detail: {},
     isShow: false,
-    theme: 'blue'
+    theme: '26b6be'
   },
   actions: actions,
   mutations: mutations,

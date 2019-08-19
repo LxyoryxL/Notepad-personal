@@ -20,13 +20,4 @@ export default {
   delNote: function (context, item) {
     context.commit('DEL_NOTE', item)
   },
-
-  // Theme
-  switch_theme: ({
-    commit
-  }, param) => commit('SWITCHTHEME', {
-    theme: param
-  })
-
-
 }

@@ -30,8 +30,11 @@ export default {
     };
   },
   created() {
-    this.getNote();// 获取本地 Note 数据
-    this.saveNote();//存储本地 Note 数据
+    this.getNote(); // 获取本地 Note 数据
+    this.saveNote(); //存储本地 Note 数据
+  },
+  mounted() {
+    this.InitBgColor(); //初始化 背景颜色
   },
   components: {
     NoteHeader,
@@ -45,6 +48,14 @@ export default {
     },
     saveNote() {
       this.$store.dispatch("saveNote");
+    },
+    InitBgColor() {
+      document
+        .querySelector("body")
+        .setAttribute(
+          "style",
+          `background-color:${this.$store.state.theme} !important;`
+        );
     },
     changePages() {
       this.tools = !this.tools;
@@ -84,8 +95,8 @@ section {
 }
 
 body {
-  background: url(./assets/ginger-cat-artificial-intelligence.png) no-repeat
-    center bottom;
+  background: url(./assets/ginger-cat-artificial-two.png) no-repeat center
+    bottom;
   background-size: 60%;
   line-height: 1;
 }

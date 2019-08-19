@@ -55,11 +55,8 @@ export default {
     })
     localStorage.setItem("state", JSON.stringify(state));
   },
-
-  // Theme
-  SWITCHTHEME(states, obj) {
-    states.theme = obj.theme;
-    func.theme_local.set(states);
+  Switch_Theme: function (state, color) {
+    state.theme = color;
     localStorage.setItem("state", JSON.stringify(state));
   }
 }

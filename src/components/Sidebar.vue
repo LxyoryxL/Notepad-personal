@@ -7,9 +7,9 @@
       <li>
         <button class="tools-btn" @click="downloadData('notepad.txt',getDate)">下载数据</button>
       </li>
-      <li>
+      <!-- <li>
         <button class="tools-btn" @click="openTable">筛选数据</button>
-      </li>
+      </li>-->
       <li>
         <button class="tools-btn" @click="showDialog">清空数据</button>
       </li>

@@ -1,23 +1,20 @@
 <template>
   <section class="theme-box" :class="{'theme-box-show':isShow}">
     <div class="theme">
-      <div class="theme-title">点击切换背景</div>
-      <div class="theme-list" @click="switchTheme('./assets/ginger-cat-animal-care.png')">
+      <div class="theme-title">点击切换背景颜色</div>
+      <div class="theme-list" @click="switchTheme('#00b0f0')">
         <span style="background: #00b0f0"></span>#00b0f0
       </div>
-      <div class="theme-list" @click="switchTheme('./assets/clip-2.png')">
+      <div class="theme-list" @click="switchTheme('#00d1b2')">
         <span style="background: #00d1b2"></span>#00d1b2
       </div>
-      <div class="theme-list" @click="switchTheme('./assets/clip-2.png')">
+      <div class="theme-list" @click="switchTheme('#f4b976')">
         <span style="background: #f4b976"></span>#f4b976
       </div>
-      <div class="theme-list" @click="switchTheme('./assets/clip-2.png')">
+      <div class="theme-list" @click="switchTheme('#f39894')">
         <span style="background: #f39894"></span>#f39894
       </div>
-      <div
-        class="theme-list"
-        @click="switchTheme('./assets/ginger-cat-artificial-intelligence.png')"
-      >
+      <div class="theme-list" @click="switchTheme('#26b6be')">
         <span style="background: #26b6be"></span>#26b6be
       </div>
     </div>
@@ -32,7 +29,11 @@ export default {
   props: ["isShow"],
   methods: {
     switchTheme(color) {
-      this.$store.dispatch("switch_theme", color);
+      document
+        .querySelector("body")
+        .setAttribute("style", `background-color:${color} !important;`);
+      this.$emit("close");
+      this.$store.commit("Switch_Theme", color);
     }
   }
 };
@@ -82,6 +83,8 @@ export default {
     cursor: pointer;
     margin-bottom: 10px;
     background: #fff;
+    font-size: 0.8rem;
+    color: black;
     &.theme-list-active {
       border: 1px solid #e94545;
     }
